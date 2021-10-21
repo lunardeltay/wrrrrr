@@ -1,3 +1,7 @@
+/* as a beginning, i learn from codewithjonathan that saying we can first code in responsive version style, then we use a 'min-weight' as a break point to switch to desktop version style, so the top part will be the responsive compatible verion and the bottom part will be the desktop version. */
+
+
+
 * {
     overflow: auto;
     /* a '*' selector means all elements in the whole webpage */
@@ -30,15 +34,15 @@ p.character {
 
 div.content {
     background-color: #FFFFFF;
-    margin-top: 60px;
-    margin-right: 10%;
-    margin-bottom: 60px;
-    margin-left: 10%;
+    margin-top: 40px;
+    margin-right: 8px;
+    margin-bottom: 40px;
+    margin-left: 8px;
     /*or actually we simply need to put as below directly without mentioning which side:
-    margin: 0px 10% 60px 10%;
+    margin: 40px 8px 40px 8px;
     */
-    padding: 0px 30px 30px 30px;
-    min-width: 400px;
+    padding: 0px 8px 20px 8px;
+    /*min-width: 400px;*/
     /*by using min-width property, we can set the minimum size, if a user adjust the browser size below than min-width we set, a horizontal scroll will appear. but of course, we will need to take care of other elements in the whole page, otherwise probably they will be not aligned as what we aspect. */
     /*however, we can solve these problem when we create responsive website*/
 
@@ -89,7 +93,7 @@ table.info {
     width: 100%;
     color: white;
     background-color:#6C829DD0;
-    height: 60px
+    height: 50px;
 }
 
 table.info td {
@@ -101,12 +105,13 @@ table.info td {
     /*by using this property, we can align center all text inside 'td' together*/
 
     vertical-align: top;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 table.info th {
     vertical-align: bottom;
     padding: 3px;
+    font-size: 14px;
 }
 
 img.info {
@@ -125,8 +130,11 @@ img.info {
 }
 
 div.columns {
-    width: 45%;
-    /*since we need to make both lists into 50% of their width, we simply mention them in 1 class instead of repeating them twice just like below */
+    width: 100%;
+    /* note: this 100% width is for mobile*/
+    
+    /*width: 50%;*/
+    /*this 50% is for desktop version - since we need to make both lists into 50% of their width, we simply mention them in 1 class instead of repeating them twice just like below */
     /*however, dont forget to add this new class 'columns' into the html class otherwise they are not linked and it wont works*/
 }
 
@@ -141,11 +149,11 @@ div.columns h2 {
 div.col1 {
     /*width: 50%;*/
     display: inline-block;
-    margin-right: 10%;
+    /*margin-right: 10%;*/
 }
 
 div.col2 {
-    float: right;
+    /*float: right;*/
     /*width: 50%;*/
 }
 
@@ -170,7 +178,6 @@ table.skills p.number {
     box-sizing: border-box; /* this property can ignore the padding and fixed the width and height*/
     border-radius: 50%;
     margin: 0;
-
 }
 
 table.skills td.the_skill {
@@ -187,3 +194,54 @@ table.skills tr {
     /*for 'tr' (table row), theres is no 'min-height' property, but 'height' is the way to set 'min-height'. btw, the reason we want to set this is, it can avoid each paragraph stick in different distance */
 }
 
+
+
+
+
+
+/* desktop style starts here */
+/* do not forget to put all codes INSIDE the selector*/
+
+@media only screen and (min-width: 768px) {
+    div.content {
+        margin: 40px 10% 30px 10%;
+        padding: 0px 30px 30px 30px;
+        min-width: 400px;
+    }
+
+    table.info {
+        height: 70px
+    }
+    
+    table.info td {
+        font-size: 14px;
+    }
+
+    table.info th {
+        font-size: 16px;
+    }
+
+    div.columns {
+        width: 45%;
+    }
+    
+    div.col1 {
+        margin-right: 10%;
+    }
+    
+    div.col2 {
+        float: right;
+    }
+}
+
+
+/* very large desktop screen style starts here */
+
+@media only screen and (min-width: 1140px) {
+    div.content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 840px;
+        /*why we want to do this very large screen style is because we want to limit our webpage layout proportion's max limit, for example if we didnt set this, our image will keep cropping to the middle (because we set the 'object-fit' property into cover on top), and also our aligned left or right elements will keep on expanding and break the whole webpage, so set set the maximum expand px limit on this 'div.content' class, when it reach the maximum limit, it wont expand anymore. */
+    }    
+}
