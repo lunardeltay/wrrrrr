@@ -1,0 +1,189 @@
+* {
+    overflow: auto;
+    /* a '*' selector means all elements in the whole webpage */
+    /* 'overflow: auto' means "if theres anything overflow in this selector (in current case is whole webpage),adjust the layout to fit eveything". */
+    /*we can also use 'overflow' property in other selectors, such like in the 'div.content' selector where i commented (if we put the property only inside there, it will only affect inside that selector) */
+    /* theres also a tips here, always put more generic codes at the top first, then specific codes at the end */
+}
+
+body {
+    background-color: #8BA1BB;
+    font-family: Arial;
+}
+
+div.head {
+    text-align: center;
+    margin-bottom: 0px;
+    overflow: visible;
+}
+
+p.character {
+    background-color: #000000;
+    color: white;
+    display: inline-block;
+    padding: 7px 20px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.content {
+    background-color: #FFFFFF;
+    margin-top: 60px;
+    margin-right: 10%;
+    margin-bottom: 60px;
+    margin-left: 10%;
+    /*or actually we simply need to put as below directly without mentioning which side:
+    margin: 0px 10% 60px 10%;
+    */
+    padding: 0px 30px 30px 30px;
+    min-width: 400px;
+    /*by using min-width property, we can set the minimum size, if a user adjust the browser size below than min-width we set, a horizontal scroll will appear. but of course, we will need to take care of other elements in the whole page, otherwise probably they will be not aligned as what we aspect. */
+    /*however, we can solve these problem when we create responsive website*/
+
+    box-shadow: 0px 0px 20px 3px rgb(0, 0, 0, 0.5);
+    overflow: visible;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+p.description {
+    text-align: center;
+    font-size: 14px;
+    max-width: 200px;
+    /* with max-width, we can control maximum length of paragraph in any size of window*/
+    display: inline-block;
+}
+    /* there are 3 types of display value we will use always: (there are still so many other display value to use, press ctrl+space after we enter 'display' to see)
+        1. block - which is default and 1 element will display each line/block
+        2. inline - which means multiple element will display in same line/block
+        3. inline-block - which almost same with inline but we can control inside it.*/
+
+
+.description {  /* <-- if we didnt mention and simply write as a class (for example div.description or p.description etc), it can apply to all kind of elements*/
+    text-align: center;
+    width: 100%;  /*<-- this will limit not only text but everything to fit inside (example img or vid etc)*/
+}
+    /* the reason why we want to create a div to control the paragraph is because we need to take control of the whole block so that we can centerlize everything inside */
+
+div.separator {
+    width: 100px;
+    height: 1px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.info {
+    position: relative;
+}
+
+table.info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color:#6C829DD0;
+    height: 60px
+}
+
+table.info td {
+/*by adding 'td' after the info class of 'info' (important: without a coma separate), we are telling the 'info' class like: "hei 'info', i want to control a part inside" */
+
+/*as a reminder, when we use a coma such like 'table.info, td {(some properties)}', it is totally another meaning, its like we are telling the 'info' class: "hei 'info", i want you to apply same properties to 'td' */
+
+    text-align: center;
+    /*by using this property, we can align center all text inside 'td' together*/
+
+    vertical-align: top;
+    font-size: 11px;
+}
+
+table.info th {
+    vertical-align: bottom;
+    padding: 3px;
+}
+
+img.info {
+    display: block;
+    max-height: 300px;
+    /*this will limit the height of the image, the reason why to limit it is becasue we can control the proportion of our website not to be running ugly, for example if we have a straight image and we have some text which is aligned to its 50% mid vertically, if someone browse our site with a wide monitor, they might probably cant see the text (because the text will be lower than the screen)*/
+
+    object-fit: cover;
+    /*but however, after we use ONLY 'max-height' property to control the height, in nature it will distort the image because system need to fit the whole image into the block, so, we will need to crop some part the picture to maintain the proportion of the image, and here is where above property 'object-fit' comes in, there are many options for the value, choose the one suits */
+    
+    min-height: 200px;
+    /*this 'min-height' of course we know it is to limit the minimum height of our image, but it also has a vry important role beside that. if our image load very slow, our website layout will become very ugly (because the display property of this div has been set to 'relative'), so to avoid ugly layout while loading, we set a minimum height to control it. and of course we can set a background color for it to looks nicer (this bg color wont appear if the image is loaded because it is overwrited), as below */
+
+    background-color: lightgray;
+    /*to check the result, we can simply make a broken link of the img purposely */
+}
+
+div.columns {
+    width: 45%;
+    /*since we need to make both lists into 50% of their width, we simply mention them in 1 class instead of repeating them twice just like below */
+    /*however, dont forget to add this new class 'columns' into the html class otherwise they are not linked and it wont works*/
+}
+
+div.columns h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    border-bottom: 5px solid #6c829d;
+    padding-bottom: 5px;
+}
+
+div.col1 {
+    /*width: 50%;*/
+    display: inline-block;
+    margin-right: 10%;
+}
+
+div.col2 {
+    float: right;
+    /*width: 50%;*/
+}
+
+div.ingredients p {
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid lightslategray;
+}
+
+table.skills p.number {
+    background-color: #6c829d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold; 
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 4px;
+    box-sizing: border-box; /* this property can ignore the padding and fixed the width and height*/
+    border-radius: 50%;
+    margin: 0;
+
+}
+
+table.skills td.the_skill {
+    padding-left: 8px; 
+    font-size: 14px;
+}
+
+table.skills td {
+    vertical-align: top;
+}
+
+table.skills tr {
+    height: 20px;
+    /*for 'tr' (table row), theres is no 'min-height' property, but 'height' is the way to set 'min-height'. btw, the reason we want to set this is, it can avoid each paragraph stick in different distance */
+}
+

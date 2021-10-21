@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ZaWaRudo</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main_page_css.css"/>
+    </head>
+
+    <body>
+        
+        <div class="content">
+
+            <div class="head">
+                <P class="character"> Dio Brando</P>
+            </div>    
+
+            <h1><b>WRRRRRRRRR!</b></h1>
+
+            <div class="separator"></div>
+
+            <div class="description">
+                <p class="description">All things about Dio Brando and <b>The World</b></p>
+            </div>
+
+            <br>
+            <div class="info">
+                <a target="_blank" href="https://www.cbr.com/jojos-bizarre-adventure-dio-brando-destroy-joestar-family/">
+                <img class="description info" src="dio-brando.jpg"></a>
+                <!-- add 'style="display: block;"' to use the full space of the div -->
+
+                <table class="info">
+                    <tr>
+                        <th>Name</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Appearance</th>
+                    </tr>
+                    <tr>
+                        <td>Dio</td>
+                        <td>Unknown</td>
+                        <td>Unknown</td>
+                        <td>Good</td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+
+            <div>
+                <div class="col1 columns">
+                    <h2>Stand's name:</h2>
+                    <div class="ingredients">
+                        <p>The World</p>
+                        <p>Time Stop</p>
+                        <p>Heavy Punch</p>
+                    </div>
+                </div>
+                
+
+                <div class="col2 columns">
+                    <h2>Killing Blow</h2>
+                    <table class="skills">
+                        <tr><td><p class="number">1</p></td><td class="the_skill">Wrrrrrrrrrrrr!</td></tr>
+                        <tr><td><p class="number">2</p></td><td class="the_skill">MudamudaMudamuda!</td></tr>
+                        <tr><td><p class="number">3</p></td><td class="the_skill">small knifes</td></tr>
+
+                        <tr><td><p class="number">1</p></td><td class="the_skill">Wrrrrrrrrrrrr!</td></tr>
+                        <tr><td><p class="number">2</p></td><td class="the_skill">MudamudaMudamuda!</td></tr>
+                        <tr><td><p class="number">3</p></td><td class="the_skill">small knifes</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--
+there is 1 thing we didnt perform in current codes, which is, multiple class attribute can be shared, example as below:
+
+in css:
+    div.ali {
+        text-align: center;
+    }
+
+    div.akow {
+        text-align: center;
+        color: blue;
+    }
+
+in html:
+    <div class="ali">
+        <p>Alibaba</p>
+    </div>
+    
+    <div class="akow">
+        <p>Bombibi</p>
+    </div>
+    
+until now, we know that 
+div class ali will let <p>Alibaba</p> align center;
+div class akow will let <p>Bombibi</p> align center and font color in blue;
+2 of these class have same property which is 'text-align: center', 
+theres a cleaner way to merge them into 1 and use it at anywhere which needed, below is how:
+
+in css:
+    div.ali {
+        text-align: center;
+    }
+
+    div.akow {
+        color: blue;
+    }
+
+in html:
+    <div class="ali">
+        <p>Alibaba</p>
+    </div>
+    
+    <div class="ali akow">  <--- we insert 'ali' and use also the properties inside
+        <p>Bombibi</p>
+    </div>
+
+we can put in 2 properties in 1 class like this, so now <p>Bombibi</p> will bhave blue font color and also text aligned center (Imagine if we have hundreds of classes which will need to text-align center)
+-->
+
+
+<!-- hints for color: hexadecimal principal:
+
+    hex color code use 6 digits to represent R,G,B (which each 2 digits represent each of them). it start from 00 (0 in RGB) to FF (255 in RGB), as below:
+        00 -> 09 -> 0a -> 0f
+        10 -> 19 -> 1a -> 1f
+        20 -> 29 -> 2a -> 2f
+        ...until ff to reach maximum
+
+        for example:
+            # 000000 : R0, G0, B0
+            # 00ff00 : R0, G255, B0 (so this is in green color)
+
+    but after 3 pairs of these codes, there can be a 4th code behind it (which follow same principal), like this:
+            # 00ff00ff
+            this pair of value represent opacity, acording to its value which is 'ff' right now, it is a 100% opacity, we can reduce the opacity like below:
+
+            # 00ff007c
+            now it become around 50% transparency
+-->
